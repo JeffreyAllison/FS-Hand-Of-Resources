@@ -62,7 +62,7 @@ describe('birds routes', () => {
     const resp = await request(app).delete('/birds/2');
     expect(resp.status).toEqual(200);
     const { body } = await request(app).get('/birds/2');
-    expect(body).toEqual('');
+    expect(body).toEqual(null);
   });
 
   afterAll(() => {
