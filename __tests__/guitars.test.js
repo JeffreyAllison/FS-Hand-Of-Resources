@@ -23,6 +23,17 @@ describe('guitars routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/guitars/:id should return a guitar from the list', async () => {
+    const res = await request(app).get('/guitars/1');
+    const strat = {
+      id: '1',
+      guitar_type: 'Stratocaster',
+      body_material: 'Wood',
+      wood_type: 'Alder',
+    };
+    expect(res.body).toEqual(strat);
+  });
+
   afterAll(() => {
     pool.end();
   });
