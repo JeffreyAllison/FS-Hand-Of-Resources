@@ -50,7 +50,7 @@ describe('birds routes', () => {
     expect(count).toEqual(6);
   });
 
-  it('PUT /birds:id should update the specific bird', async () => {
+  it('PUT /birds/:id should update the specific bird', async () => {
     const resp = await request(app)
       .put('/birds/3')
       .send({ flying_bird: false });
