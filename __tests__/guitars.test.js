@@ -34,6 +34,20 @@ describe('guitars routes', () => {
     expect(res.body).toEqual(strat);
   });
 
+  it('POST /guitars should create a new guitar', async () => {
+    const guitar = new Guitar({
+      guitar_type: 'SG',
+      body_material: 'Wood',
+      wood_type: 'Mahogany',
+    });
+    const res = await request(app).post('/guitars').send(guitar);
+    expect(res.body.guitar_type).toEqual(guitar.guitar_type);
+    expect(res.body.body_material).toEqual(guitar.body_material);
+    expect(res.body.wood_type).toEqual(guitar.wood_type);
+    const count = await Guitar.count();
+    expect(count).toEqual(6);
+  });
+
   afterAll(() => {
     pool.end();
   });
