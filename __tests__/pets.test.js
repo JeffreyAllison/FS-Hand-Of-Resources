@@ -48,13 +48,13 @@ describe('pets routes', () => {
     expect(count).toEqual(6);
   });
 
-  // it('PUT /pets/:id should update the specific pet', async () => {
-  //   const resp = await request(app)
-  //     .put('/pets/3')
-  //     .send({ pet_name: 'Midnite' });
-  //   expect(resp.status).toEqual(200);
-  //   expect(resp.body.pet_name).toEqual('Midnite');
-  // });
+  it('PUT /pets/:id should update the specific pet', async () => {
+    const resp = await request(app)
+      .put('/pets/3')
+      .send({ pet_name: 'Midnite' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.pet_name).toEqual('Midnite');
+  });
 
   // it('DELETE /pets/:id should delete a specific pet', async () => {
   //   const resp = await request(app).delete('/pets/2');
