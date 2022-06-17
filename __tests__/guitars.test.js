@@ -48,6 +48,14 @@ describe('guitars routes', () => {
     expect(count).toEqual(6);
   });
 
+  it('PUT /guitars/:id should update the specific guitar', async () => {
+    const resp = await request(app)
+      .put('/guitars/3')
+      .send({ guitar_type: 'Les Paul Custom' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.guitar_type).toEqual('Les Paul Custom');
+  });
+
   afterAll(() => {
     pool.end();
   });
