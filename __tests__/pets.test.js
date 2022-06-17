@@ -56,12 +56,12 @@ describe('pets routes', () => {
     expect(resp.body.pet_name).toEqual('Midnite');
   });
 
-  // it('DELETE /pets/:id should delete a specific pet', async () => {
-  //   const resp = await request(app).delete('/pets/2');
-  //   expect(resp.status).toEqual(200);
-  //   const { body } = await request(app).get('/pets/2');
-  //   expect(body).toEqual(null);
-  // });
+  it('DELETE /pets/:id should delete a specific pet', async () => {
+    const resp = await request(app).delete('/pets/2');
+    expect(resp.status).toEqual(200);
+    const { body } = await request(app).get('/pets/2');
+    expect(body).toEqual(null);
+  });
 
   afterAll(() => {
     pool.end();
