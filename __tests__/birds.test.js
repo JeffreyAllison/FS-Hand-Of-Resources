@@ -58,6 +58,11 @@ describe('birds routes', () => {
     expect(resp.body.flying_bird).toEqual(false);
   });
 
+  it('DELETE /birds/:id should delete a specific bird', async () => {
+    const resp = await request(app).delete('/birds/2');
+    expect(resp.status).toEqual(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
