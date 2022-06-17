@@ -49,7 +49,7 @@ INSERT INTO birds (
 VALUES 
 ('Golden Eagle', 200, 'true'), 
 ('Northern Flicker', 50, 'true'), 
-('Emperor Penguin', 80, 'false'), 
+('Emperor Penguin', 80, 'true'), 
 ('Indigo Bunting', 20, 'true'), 
 ('Common Raven', 120, 'true');
 
