@@ -1,7 +1,7 @@
 {
   "name": "backend-express-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Golden Rule: 🦸 🦸‍♂️ Stop starting and start finishing. 🏁",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -36,5 +36,16 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "pg": "^8.7.3"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffreyAllison/FS-Hand-Of-Resources.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JeffreyAllison/FS-Hand-Of-Resources/issues"
+  },
+  "homepage": "https://github.com/JeffreyAllison/FS-Hand-Of-Resources#readme"
 }
