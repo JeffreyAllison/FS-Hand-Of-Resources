@@ -23,32 +23,32 @@ describe('birds routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('/birds/:id should return a bird from the list', async () => {
-    const res = await request(app).get('/birds/1');
-    const golden = {
-      id: 1,
-      bird_name: 'Golden Eagle',
-      average_wingspan_in_cm: 200,
-      flying_bird: 'true',
-    };
-    expect(res.body).toEqual(golden);
-  });
+  // it('/birds/:id should return a bird from the list', async () => {
+  //   const res = await request(app).get('/birds/1');
+  //   const golden = {
+  //     id: 1,
+  //     bird_name: 'Golden Eagle',
+  //     average_wingspan_in_cm: 200,
+  //     flying_bird: 'true',
+  //   };
+  //   expect(res.body).toEqual(golden);
+  // });
 
-  it('POST /birds should create a new bird', async () => {
-    const bird = new Bird({
-      bird_name: 'Stellers Jay',
-      average_wingspan_in_cm: 46,
-      flying_bird: 'true',
-    });
-    const res = await request(app).post('/birds').send(bird);
-    expect(res.body.bird_name).toEqual(bird.bird_name);
-    expect(res.body.average_wingspan_in_cm).toEqual(
-      bird.average_wingspan_in_cm
-    );
-    expect(res.body.flying_bird).toEqual(bird.flying_bird);
-    const count = await Bird.count();
-    expect(count).toEqual(6);
-  });
+  // it('POST /birds should create a new bird', async () => {
+  //   const bird = new Bird({
+  //     bird_name: 'Stellers Jay',
+  //     average_wingspan_in_cm: 46,
+  //     flying_bird: 'true',
+  //   });
+  //   const res = await request(app).post('/birds').send(bird);
+  //   expect(res.body.bird_name).toEqual(bird.bird_name);
+  //   expect(res.body.average_wingspan_in_cm).toEqual(
+  //     bird.average_wingspan_in_cm
+  //   );
+  //   expect(res.body.flying_bird).toEqual(bird.flying_bird);
+  //   const count = await Bird.count();
+  //   expect(count).toEqual(6);
+  // });
 
   afterAll(() => {
     pool.end();
