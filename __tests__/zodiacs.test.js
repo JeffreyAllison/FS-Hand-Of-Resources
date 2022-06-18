@@ -34,6 +34,20 @@ describe('zodiacs routes', () => {
     expect(res.body).toEqual(aries);
   });
 
+  it('POST /zodiacs should create a new zodiac', async () => {
+    const zodiac = new Zodiac({
+      zodiac_name: 'Virgo',
+      zodiac_symbol: 'Fertility/Harvest Deity',
+      zodiac_element: 'Earth',
+    });
+    const res = await request(app).post('/zodiacs').send(zodiac);
+    expect(res.body.zodiac_name).toEqual(zodiac.zodiac_name);
+    expect(res.body.zodiac_symbol).toEqual(zodiac.zodiac_symbol);
+    expect(res.body.zodiac_element).toEqual(zodiac.zodiac_element);
+    const count = await Zodiac.count();
+    expect(count).toEqual(6);
+  });
+
   afterAll(() => {
     pool.end();
   });
