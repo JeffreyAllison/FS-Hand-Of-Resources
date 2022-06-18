@@ -48,6 +48,14 @@ describe('zodiacs routes', () => {
     expect(count).toEqual(6);
   });
 
+  it('PUT /zodiacs/:id should update the specific zodiac', async () => {
+    const resp = await request(app)
+      .put('/zodiacs/3')
+      .send({ zodiac_symbol: 'The Twins' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.zodiac_symbol).toEqual('The Twins');
+  });
+
   afterAll(() => {
     pool.end();
   });
