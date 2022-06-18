@@ -56,6 +56,13 @@ describe('zodiacs routes', () => {
     expect(resp.body.zodiac_symbol).toEqual('The Twins');
   });
 
+  it('DELETE /zodiacs/:id should delete a specific zodiac', async () => {
+    const resp = await request(app).delete('/zodiacs/2');
+    expect(resp.status).toEqual(200);
+    const { body } = await request(app).get('/zodiacs/2');
+    expect(body).toEqual(null);
+  });
+
   afterAll(() => {
     pool.end();
   });
