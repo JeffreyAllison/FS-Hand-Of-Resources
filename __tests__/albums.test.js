@@ -58,6 +58,13 @@ describe('albums routes', () => {
     );
   });
 
+  it('DELETE /albums/:id should delete a specific album', async () => {
+    const resp = await request(app).delete('/albums/4');
+    expect(resp.status).toEqual(200);
+    const { body } = await request(app).get('/albums/4');
+    expect(body).toEqual(null);
+  });
+
   afterAll(() => {
     pool.end();
   });
