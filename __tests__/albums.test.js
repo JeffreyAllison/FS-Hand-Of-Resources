@@ -34,6 +34,20 @@ describe('albums routes', () => {
     expect(res.body).toEqual(sleep);
   });
 
+  it('POST /albums should create a new album', async () => {
+    const album = new Album({
+      artist_name: 'XTC',
+      album_title: 'Skylarking',
+      album_genres: 'Pop, Rock',
+    });
+    const res = await request(app).post('/albums').send(album);
+    expect(res.body.artist_name).toEqual(album.artist_name);
+    expect(res.body.album_title).toEqual(album.album_title);
+    expect(res.body.album_genres).toEqual(album.album_genres);
+    const count = await Album.count();
+    expect(count).toEqual(6);
+  });
+
   afterAll(() => {
     pool.end();
   });
