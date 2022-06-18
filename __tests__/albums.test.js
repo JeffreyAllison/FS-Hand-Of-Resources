@@ -23,6 +23,17 @@ describe('albums routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/albums/:id should return an album from the list', async () => {
+    const res = await request(app).get('/albums/1');
+    const sleep = {
+      id: '1',
+      artist_name: 'Sleep',
+      album_title: 'Jerusalem',
+      album_genres: 'Metal, Doom, Drone',
+    };
+    expect(res.body).toEqual(sleep);
+  });
+
   afterAll(() => {
     pool.end();
   });

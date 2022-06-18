@@ -95,7 +95,7 @@ INSERT INTO albums (
   album_genres
 )
 VALUES
-('Sleep', 'Dopesmoker', 'Metal, Doom, Drone'), 
+('Sleep', 'Jerusalem', 'Metal, Doom, Drone'), 
 ('Esperanza Spalding', 'Emilys D+Evolution', 'Jazz, Fusion'), 
 ('Can', 'Future Days', 'Krautrock, Ambient, Progressive Rock'), 
 ('King Crimson', 'Red', 'Progressive Rock'), 
