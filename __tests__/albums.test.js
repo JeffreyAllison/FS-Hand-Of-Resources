@@ -48,6 +48,16 @@ describe('albums routes', () => {
     expect(count).toEqual(6);
   });
 
+  it('PUT /albums/:id should update the specific album', async () => {
+    const resp = await request(app).put('/albums/3').send({
+      album_genres: 'Krautrock, Ambient, Progressive Rock, Electronic',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.album_genres).toEqual(
+      'Krautrock, Ambient, Progressive Rock, Electronic'
+    );
+  });
+
   afterAll(() => {
     pool.end();
   });
