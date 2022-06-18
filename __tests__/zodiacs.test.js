@@ -23,6 +23,17 @@ describe('zodiacs routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/zodiacs/:id should return a zodiac from the list', async () => {
+    const res = await request(app).get('/zodiacs/1');
+    const aries = {
+      id: '1',
+      zodiac_name: 'Aries',
+      zodiac_symbol: 'Ram',
+      zodiac_element: 'Fire',
+    };
+    expect(res.body).toEqual(aries);
+  });
+
   afterAll(() => {
     pool.end();
   });
